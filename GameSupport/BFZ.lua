@@ -5505,7 +5505,6 @@ end
             if _G.AutoSaber then
                 if game.Players.localPlayer.Data.Level.Value < 200 then
                 else
-                    Auto_Farm = false
                     if game.Workspace.Map.Jungle.Final.Part.CanCollide == false then
                         if game.Workspace.Enemies:FindFirstChild("Saber Expert [Lv. 200] [Boss]") then
                             for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
@@ -5611,7 +5610,6 @@ end
                             end    
                         end
                     end
-                    Auto_Farm = true
                 end 
             end
         end
