@@ -234,9 +234,10 @@ function RUN_FUNCTION(name, extension, configOpt)
             Direction = Enum.EasingDirection.In,
             TIME = .4
         }).Completed:Wait(1)
+	BlueXLoader:Destroy()
     
         loadstring(settings.Executable)()
-        BlueXLoader:Destroy()
+        
     end)
 end
 return RUN_FUNCTION;
