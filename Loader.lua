@@ -1,3 +1,5 @@
+-- Skid in: https://v3rmillion.net/showthread.php?tid=1116257
+
 local coreGui = game:GetService("CoreGui")
 local tweenService = game:GetService("TweenService");
 
