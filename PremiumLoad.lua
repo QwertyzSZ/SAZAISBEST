@@ -1,4 +1,3 @@
-local _G.Keys = _G.wl_key
 local PlaceId = game.PlaceId
 
 if PlaceId == 6284583030 or PlaceId == 7722306047 then
