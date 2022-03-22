@@ -2920,7 +2920,6 @@ function library:CreateWindow(name, size, hidebutton)
                     dropdown.BlackOutline2Items.Size = dropdown.ItemsFrame.Size + UDim2.fromOffset(6, 6)
                     dropdown.IgnoreBackButtons.Size = dropdown.ItemsFrame.Size
                     dropdown:Refresh()
-                    return
                 end
                 function dropdown:getList()
                     return dropdown.items
