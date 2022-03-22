@@ -2615,12 +2615,7 @@ function library:CreateWindow(name, size, hidebutton)
             end
 
             function sector:AddDropdown(text, items, default, multichoice, callback, flag)
-                local dropdown = { }
-                local Dropdown = Folder.Dropdown:Clone()
-                local DropdownInit = {}
-                local Dropdown = Folder.Dropdown:Clone()
-                Dropdown.Name = Name .. " D"
-                Dropdown.Parent = Section.Container                
+                local dropdown = { }             
                 dropdown.text = text or ""
                 dropdown.defaultitems = items or { }
                 dropdown.default = default
