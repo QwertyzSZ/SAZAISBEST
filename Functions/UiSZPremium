@@ -2382,6 +2382,21 @@ function library:CreateWindow(name, size, hidebutton)
                             item:Remove()
                         end
                     end 
+
+                    function dropdown:Refresh()
+                        for _, Option in pairs(dropdown.ItemsFrame:GetChildren()) do
+                            if Option:IsA("TextButton") then
+                                Option:Destroy()
+                            end
+                        end
+                        dropdown.ItemsFrame.Size = UDim2.fromOffset(dropdown.Main.Size.X.Offset, math.clamp(#dropdown.items * item.AbsoluteSize.Y, 20, 156) + 4)
+                        dropdown.ItemsFrame.CanvasSize = UDim2.fromOffset(dropdown.ItemsFrame.AbsoluteSize.X, (#dropdown.items * item.AbsoluteSize.Y) + 4)
+                        dropdown.OutlineItems.Size = dropdown.ItemsFrame.Size + UDim2.fromOffset(2, 2)
+                        dropdown.BlackOutlineItems.Size = dropdown.ItemsFrame.Size + UDim2.fromOffset(4, 4)
+                        dropdown.BlackOutline2Items.Size = dropdown.ItemsFrame.Size + UDim2.fromOffset(6, 6)
+                        dropdown.IgnoreBackButtons.Size = dropdown.ItemsFrame.Size
+                    end
+
                     function dropdown:getList()
                         return dropdown.items
                     end
@@ -2837,7 +2852,7 @@ function library:CreateWindow(name, size, hidebutton)
                     Item.Size = UDim2.fromOffset(dropdown.Main.Size.X.Offset - 4, 20)
                     Item.ZIndex = 9
                     Item.Text = v
-                    Item.Name = v
+                    Item.Name = "Items"
                     Item.AutoButtonColor = false
                     Item.Font = window.theme.font
                     Item.TextSize = 15
@@ -2908,17 +2923,20 @@ function library:CreateWindow(name, size, hidebutton)
                     end
                 end
                 function dropdown:Refresh()
-                    for _, Option in pairs(dropdown.ItemsFrame:GetChildren()) do
-                        if Option:IsA("TextButton") then
-                            Option:Destroy()
+                    local item = dropdown.ItemsFrame:GetChildren("Items")
+                    if item then
+                        for i, v in pairs(dropdown.items) do
+                            if v == "Items" then
+                                table.remove(dropdown.items, i)
+                            end
                         end
-                    end
                     dropdown.ItemsFrame.Size = UDim2.fromOffset(dropdown.Main.Size.X.Offset, math.clamp(#dropdown.items * item.AbsoluteSize.Y, 20, 156) + 4)
+                    dropdown.ItemsFrame.CanvasSize = UDim2.fromOffset(dropdown.ItemsFrame.AbsoluteSize.X, (#dropdown.items * item.AbsoluteSize.Y) + 4)
                     dropdown.OutlineItems.Size = dropdown.ItemsFrame.Size + UDim2.fromOffset(2, 2)
                     dropdown.BlackOutlineItems.Size = dropdown.ItemsFrame.Size + UDim2.fromOffset(4, 4)
                     dropdown.BlackOutline2Items.Size = dropdown.ItemsFrame.Size + UDim2.fromOffset(6, 6)
                     dropdown.IgnoreBackButtons.Size = dropdown.ItemsFrame.Size
-                    dropdown:Refresh()
+                    end
                 end
                 function dropdown:getList()
                     return dropdown.items
