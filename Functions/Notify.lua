@@ -3,13 +3,14 @@ local Notification = {}
 local previousUiExists = game:GetService("CoreGui"):FindFirstChild("MainNotify")
 if previousUiExists then previousUiExists:Destroy() end
 
+
+
+function Notification:Create(titel,text,delays)
 local MainNotify = instance.new("ScreenGui")
 MainNotify.Name = "MainNotify"
 MainNotify.Parent = game:GetService("CoreGui")
 MainNotify.ZIndexBehavior = Enum.ZIndexBehavior.Global
 MainNotify.ResetOnSpawn = false
-
-function Notification.new(titel,text,delays)
 local NotiFrame = Instance.new("Frame")
 NotiFrame.Name = "NotiFrame"
 NotiFrame.Parent = MainNotify
