@@ -1,7 +1,8 @@
 local Notification = {}
 
 local GUI = game:GetService("CoreGui"):FindFirstChild("MainNotify")
-function Notification:Create(titel,text,delays)
+
+function Notification:Create(titel, text ,Delays)
 local NotiFrame = Instance.new("Frame")
 NotiFrame.Name = "NotiFrame"
 NotiFrame.Parent = GUI
@@ -118,11 +119,11 @@ until Time.Size == UDim2.new(0, 400 - 10, 0, 3)
 
 TweenService:Create(
     Time,
-    TweenInfo.new(tonumber(delays), Enum.EasingStyle.Linear, Enum.EasingDirection.InOut),
+    TweenInfo.new(tonumber(Delays), Enum.EasingStyle.Linear, Enum.EasingDirection.InOut),
     {Size = UDim2.new(0, 0, 0, 3)} -- UDim2.new(0, 128, 0, 25)
 ):Play()
 delay(
-    tonumber(delays),
+    tonumber(Delays),
     function()
         TweenService:Create(
             TitleFrame,
