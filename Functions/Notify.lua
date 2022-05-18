@@ -1,10 +1,5 @@
 local Notification = {}
 
-local previousUiExists = game:GetService("CoreGui"):FindFirstChild("MainNotify")
-if previousUiExists then previousUiExists:Destroy() end
-
-
-
 function Notification:Create(titel,text,delays)
 local MainNotify = instance.new("ScreenGui")
 MainNotify.Name = "MainNotify"
