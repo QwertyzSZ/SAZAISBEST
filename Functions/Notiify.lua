@@ -2,7 +2,7 @@ local Notification = {}
 
 local GUI = game:GetService("CoreGui"):FindFirstChild("MainNotify")
 
-function Notification:Create(titel, text, delays)
+function Notification.new(titel, text, delays)
 local NotiFrame = Instance.new("Frame")
 NotiFrame.Name = "NotiFrame"
 NotiFrame.Parent = GUI
@@ -91,8 +91,7 @@ TextNoti.Position = UDim2.new(0.5, 0, 0.5, 0)
 TextNoti.TextXAlignment = Enum.TextXAlignment.Left
 TextNoti.BackgroundTransparency = 1
 
-repeat
-    wait()
+repeat wait()
 until TitleFrame.Size == UDim2.new(0, 400 - 10, 0, 70)
 
 local Time = Instance.new("Frame")
