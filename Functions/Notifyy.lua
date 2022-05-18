@@ -1,14 +1,10 @@
 local Notification = {}
 
+local GUI = game:GetService("CoreGui"):FindFirstChild("MainNotify")
 function Notification:Create(titel,text,delays)
-local MainNotify = instance.new("ScreenGui")
-MainNotify.Name = "MainNotify"
-MainNotify.Parent = game:GetService("CoreGui")
-MainNotify.ZIndexBehavior = Enum.ZIndexBehavior.Global
-MainNotify.ResetOnSpawn = false
 local NotiFrame = Instance.new("Frame")
 NotiFrame.Name = "NotiFrame"
-NotiFrame.Parent = MainNotify
+NotiFrame.Parent = GUI
 NotiFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 NotiFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 NotiFrame.BorderSizePixel = 0
