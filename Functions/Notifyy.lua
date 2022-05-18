@@ -1,6 +1,7 @@
 local Notification = {}
 
 local GUI = game:GetService("CoreGui"):FindFirstChild("MainNotify")
+local TweenService = game:GetService("TweenService")
 
 function Notification.new(titel, text, delays)
 local NotiFrame = Instance.new("Frame")
@@ -130,4 +131,5 @@ TweenService:Create(
         end
 )
 end
+
 return Notification
