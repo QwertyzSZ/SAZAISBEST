@@ -2,7 +2,7 @@ local Notification = {}
 
 local GUI = game:GetService("CoreGui"):FindFirstChild("MainNotify")
 
-function Notification:Create(titel, text ,Delays)
+function Notification:Create(titel, text , delays)
 local NotiFrame = Instance.new("Frame")
 NotiFrame.Name = "NotiFrame"
 NotiFrame.Parent = GUI
@@ -112,27 +112,21 @@ ConnerTitile_Time.CornerRadius = UDim.new(0, 4)
 ConnerTitile_Time.Name = ""
 ConnerTitile_Time.Parent = Time
 
-Time:TweenSizeAndPosition(UDim2.new(0, 400 - 10, 0, 3), UDim2.new(0., 0, 0., 0), "Out", "Quad", 0.3, true)
-repeat
-    wait()
-until Time.Size == UDim2.new(0, 400 - 10, 0, 3)
-
+Time:TweenSizeAndPosition(UDim2.new(0, 400-10, 0, 3),  UDim2.new(0., 0, 0.,0), "Out", "Quad", 0.3, true)
+repeat wait() until Time.Size == UDim2.new(0, 400-10, 0, 3)
+    
 TweenService:Create(
     Time,
-    TweenInfo.new(tonumber(Delays), Enum.EasingStyle.Linear, Enum.EasingDirection.InOut),
-    {Size = UDim2.new(0, 0, 0, 3)} -- UDim2.new(0, 128, 0, 25)
-):Play()
-delay(
-    tonumber(Delays),
-    function()
-        TweenService:Create(
-            TitleFrame,
-            TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
-            {Size = UDim2.new(0, 0, 0, 0)} -- UDim2.new(0, 128, 0, 25)
+    TweenInfo.new(tonumber(delays), Enum.EasingStyle.Linear, Enum.EasingDirection.InOut),
+            {Size = UDim2.new(0, 0, 0, 3)} -- UDim2.new(0, 128, 0, 25)
         ):Play()
-        wait(0.3)
-        TitleFrame:Destroy()
-    end
-)
+        delay(tonumber(delays),function()
+            TweenService:Create(
+                TitleFrame,
+                TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+                {Size = UDim2.new(0, 0, 0, 0)} -- UDim2.new(0, 128, 0, 25)
+            ):Play()
+            wait(0.3)
+  TitleFrame:Destroy()
 end
 return Notification
